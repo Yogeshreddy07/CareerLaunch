@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>About Pinky Tech | Empowering Women in Technology</title>
+    <meta name="description" content="Pinky Tech is a women-led technology company empowering women to build independent careers through placement training and career restart programs.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    
+    <style>
+        /* ==================== CSS RESET & VARIABLES (Copied from index.html) ==================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            /* Premium Pink Theme - Women Empowerment Palette */
+            --primary: #E83E8C; --primary-hover: #d63384; --primary-dark: #1a0a14; --primary-light: #FFF0F6;
+            --secondary: #C77DFF; --secondary-hover: #B366FF; --secondary-light: #F3E8FF; --secondary-bg: #FDF4FF;
+            --accent: #FF6F91; --accent-hover: #FF5A7A; --accent-light: #FFF1F4;
+            --white: #FFFFFF; --bg-light: #FFFBFD; --bg-subtle: #FFF5F8; --bg-section: #FEFCFD;
+            --border: #F8E8EF; --border-dark: #F0D4E0;
+            --text-primary: #1A0A14; --text-secondary: #4A3642; --text-muted: #6B5A63; --text-light: #9A8B92;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            --gradient-soft: linear-gradient(135deg, #FFEEF5 0%, #FFF4FF 50%, #FFF8FB 100%);
+            --gradient-hero: linear-gradient(180deg, rgba(232,62,140,0.04) 0%, rgba(199,125,255,0.02) 40%, var(--bg-light) 100%);
+            --gradient-section-1: linear-gradient(180deg, var(--bg-light) 0%, rgba(255,240,246,0.5) 100%);
+            --gradient-section-2: linear-gradient(180deg, rgba(255,240,246,0.3) 0%, var(--bg-light) 100%);
+            --gradient-warm: linear-gradient(135deg, #FFF5F8 0%, #FFEEF5 50%, #FFF4FF 100%);
+            --gradient-cta: linear-gradient(135deg, #E83E8C 0%, #C77DFF 50%, #9D4EDD 100%);
+            --gradient-footer: linear-gradient(180deg, #2A1022 0%, #1a0a14 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            
+            /* Shadows & Radius */
+            --shadow-xs: 0 1px 2px rgba(26, 10, 20, 0.04);
+            --shadow-sm: 0 2px 8px rgba(26, 10, 20, 0.04), 0 1px 3px rgba(232,62,140,0.02);
+            --shadow-md: 0 8px 24px rgba(26, 10, 20, 0.06), 0 4px 12px rgba(232,62,140,0.04);
+            --shadow-lg: 0 16px 40px rgba(26, 10, 20, 0.08), 0 8px 16px rgba(232,62,140,0.05);
+            --shadow-xl: 0 24px 56px rgba(26, 10, 20, 0.10), 0 12px 24px rgba(232,62,140,0.06);
+            --shadow-primary: 0 8px 32px rgba(232,62,140,0.20), 0 4px 12px rgba(232,62,140,0.12);
+            --shadow-card: 0 4px 20px rgba(26, 10, 20, 0.05), 0 2px 8px rgba(232,62,140,0.03);
+            --shadow-card-hover: 0 20px 50px rgba(26, 10, 20, 0.10), 0 10px 20px rgba(232,62,140,0.08);
+            
+            --radius-sm: 10px; --radius-md: 14px; --radius-lg: 20px; --radius-xl: 28px; --radius-2xl: 36px; --radius-full: 9999px;
+            --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            --header-height: 76px; --section-gap: 120px;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body {
+            font-family: 'Inter', sans-serif; color: var(--text-primary); background-color: var(--bg-light);
+            line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: var(--header-height);
+        }
+        a { text-decoration: none; color: inherit; transition: color var(--transition-base); }
+        ul { list-style: none; }
+        button { font-family: inherit; cursor: pointer; }
+
+        /* Components */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-header { text-align: center; margin-bottom: 72px; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
+            color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px;
+            background: var(--gradient-glass); padding: 10px 20px; border-radius: var(--radius-full);
+            border: 1px solid rgba(232,62,140,0.1); box-shadow: var(--shadow-sm);
+        }
+        .section-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: var(--text-primary); line-height: 1.15; margin-bottom: 20px; letter-spacing: -0.5px; }
+        .section-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 640px; line-height: 1.75; margin: 0 auto; }
+        
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 32px; font-size: 15px; font-weight: 600; border-radius: var(--radius-md); transition: all var(--transition-base); position: relative; overflow: hidden; }
+        .btn-primary { background: var(--gradient-primary); color: var(--white); box-shadow: var(--shadow-primary); border: 1px solid rgba(255,255,255,0.15); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(232,62,140,0.25); }
+        .btn-secondary { background: var(--gradient-glass); color: var(--primary); border: 2px solid rgba(232,62,140,0.15); backdrop-filter: blur(8px); }
+        .btn-secondary:hover { border-color: var(--primary); transform: translateY(-3px); }
+
+        /* Header & Footer Styles (Simplified for About Page consistency) */
+        .header { position: fixed; inset: 0 0 auto 0; height: var(--header-height); background: rgba(255,251,253,0.95); backdrop-filter: blur(20px); z-index: 1100; border-bottom: 1px solid rgba(232,62,140,0.06); display: flex; align-items: center; }
+        .header .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 800; color: var(--primary); }
+        .logo-icon { width: 42px; height: 42px; background: var(--gradient-primary); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; }
+        .nav-menu { display: flex; gap: 8px; }
+        .nav-link { padding: 8px 16px; font-weight: 500; color: var(--text-secondary); border-radius: var(--radius-sm); }
+        .nav-link:hover { color: var(--primary); background: var(--primary-light); }
+        .nav-link.active { color: var(--primary); background: var(--primary-light); }
+        .nav-actions { display: flex; gap: 12px; }
+        
+        /* About Hero - Unique Storytelling Design */
+        .about-hero { 
+            padding: 120px 0 100px; 
+            background: var(--gradient-hero); 
+            position: relative; 
+            overflow: hidden; 
+            text-align: center;
+        }
+        .about-hero .container { position: relative; z-index: 2; }
+        .about-hero-content { max-width: 800px; margin: 0 auto; }
+        .about-hero-title { 
+            font-size: clamp(36px, 6vw, 56px); 
+            font-weight: 800; 
+            line-height: 1.15; 
+            margin-bottom: 28px; 
+            letter-spacing: -1px;
+            color: var(--text-primary);
+        }
+        .about-hero-title .highlight { 
+            background: var(--gradient-primary); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+        }
+        .about-hero-subtitle { 
+            font-size: 18px; 
+            color: var(--text-secondary); 
+            line-height: 1.8; 
+            max-width: 680px; 
+            margin: 0 auto 48px; 
+        }
+        .about-hero-stats { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 40px; 
+            margin-bottom: 48px;
+            padding: 32px 48px;
+            background: var(--gradient-glass);
+            border-radius: var(--radius-2xl);
+            border: 1px solid rgba(232,62,140,0.08);
+            box-shadow: var(--shadow-md);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .stat-item { text-align: center; }
+        .stat-number { 
+            display: block; 
+            font-size: 36px; 
+            font-weight: 800; 
+            color: var(--primary); 
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+        .stat-label { 
+            font-size: 14px; 
+            color: var(--text-muted); 
+            font-weight: 500; 
+        }
+        .stat-divider { 
+            width: 1px; 
+            height: 48px; 
+            background: linear-gradient(180deg, transparent, var(--border), transparent); 
+        }
+        .about-hero-cta { margin-top: 8px; }
+        .about-hero-decoration { 
+            position: absolute; 
+            inset: 0; 
+            pointer-events: none; 
+            overflow: hidden;
+        }
+        .decoration-circle { 
+            position: absolute; 
+            border-radius: 50%; 
+            background: var(--gradient-primary); 
+            opacity: 0.03;
+        }
+        .decoration-circle-1 { width: 600px; height: 600px; top: -200px; right: -200px; }
+        .decoration-circle-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; }
+        .decoration-circle-3 { width: 200px; height: 200px; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; }
+        .icon-sm { width: 18px; height: 18px; }
+
+        /* Story Section */
+        .story-section { padding: var(--section-gap) 0; background: var(--white); }
+        .story-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+        .story-content h2 { font-size: 36px; font-weight: 800; margin-bottom: 24px; }
+        .story-content p { font-size: 18px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+        .story-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .story-stat { background: var(--gradient-soft); padding: 32px; border-radius: var(--radius-xl); text-align: center; }
+        .story-stat strong { display: block; font-size: 42px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+        .story-stat span { font-size: 15px; color: var(--text-muted); font-weight: 500; }
+
+        /* Mission & Vision */
+        .mission-section { padding: var(--section-gap) 0; background: var(--bg-light); }
+        .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .mission-card { background: var(--white); padding: 48px; border-radius: var(--radius-2xl); border: 1px solid var(--border); transition: all var(--transition-base); }
+        .mission-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: rgba(232,62,140,0.15); }
+        .mission-icon { width: 64px; height: 64px; background: var(--gradient-soft); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--primary); }
+        .mission-card h3 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+        .mission-card p { color: var(--text-secondary); line-height: 1.7; }
+        
+        /* Problem & Solution Cards */
+        .solution-grid { display: grid; gap: 24px; }
+        .solution-card { background: var(--bg-light); padding: 32px; border-radius: var(--radius-xl); display: flex; gap: 20px; align-items: flex-start; }
+        .solution-card.primary { border-left: 5px solid var(--primary); }
+        .solution-card.secondary { border-left: 5px solid var(--secondary); }
+        .solution-icon { min-width: 48px; height: 48px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); }
+        .solution-icon.primary { color: var(--primary); }
+        .solution-icon.secondary { color: var(--secondary); }
+        .solution-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .solution-text p { font-size: 15px; color: var(--text-secondary); }
+        
+        /* How It Works (Timeline) */
+        .timeline-section { padding: var(--section-gap) 0; background: var(--gradient-section-2); }
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; padding-left: 40px; }
+        .timeline::before { content: ''; position: absolute; left: 41px; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--primary), var(--secondary)); border-radius: 10px; }
+        .timeline-item { position: relative; padding-left: 60px; margin-bottom: 48px; }
+        .timeline-marker { position: absolute; left: -21px; top: 0; width: 48px; height: 48px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; border: 4px solid var(--bg-light); box-shadow: var(--shadow-md); z-index: 2; }
+        .timeline-content { background: var(--white); padding: 32px; border-radius: var(--radius-xl); box-shadow: var(--shadow-card); transition: transform 0.3s ease; }
+        .timeline-content:hover { transform: translateX(10px); }
+        .timeline-content h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+        .timeline-content p { color: var(--text-muted); }
+        
+        /* Values Grid */
+        .values-section { padding: var(--section-gap) 0; background: var(--white); }
+        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .value-card { padding: 36px; border-radius: var(--radius-xl); background: var(--bg-subtle); border: 1px solid transparent; transition: all var(--transition-base); }
+        .value-card:hover { background: var(--white); box-shadow: var(--shadow-lg); border-color: var(--border); transform: translateY(-5px); }
+        .value-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .value-card h3.primary { color: var(--primary); }
+        .value-card h3.secondary { color: var(--secondary); }
+        .value-card h3.accent { color: var(--accent); }
+        .value-card p { color: var(--text-secondary); }
+        
+        /* Stats Overview Section */
+        .stats-overview { padding: 80px 0; background: var(--bg-light); border-top: 1px solid var(--border); }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .stats-card { background: white; border: 1px solid var(--border); padding: 32px; border-radius: var(--radius-xl); transition: all var(--transition-base); }
+        .stats-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .stats-card h4 { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+        .stats-card p { color: var(--text-muted); font-size: 14px; }
+        
+        /* CTA Section */
+        .cta-section { padding: 100px 0; background: var(--gradient-cta); text-align: center; position: relative; overflow: hidden; }
+        .cta-section .container { position: relative; z-index: 2; }
+        .cta-title { font-size: clamp(32px, 5vw, 48px); font-weight: 800; color: white; margin-bottom: 24px; }
+        .cta-subtitle { font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .cta-btn-primary { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; font-size: 15px; font-weight: 600; background: white; color: var(--primary); border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: all var(--transition-base); }
+        .cta-btn-primary:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
+        .cta-btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: 16px 32px; font-size: 15px; font-weight: 600; border: 2px solid white; color: white; border-radius: var(--radius-md); backdrop-filter: blur(4px); transition: all var(--transition-base); }
+        .cta-btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+        .cta-decoration { position: absolute; top: -50%; right: -10%; width: 600px; height: 600px; background: rgba(255,255,255,0.1); border-radius: 50%; pointer-events: none; }
+        
+        /* Footer */
+        .footer { background: var(--gradient-footer); color: white; padding: 80px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+        .footer-brand .logo { display: flex; align-items: center; gap: 12px; color: white; margin-bottom: 20px; }
+        .footer-brand .logo-icon { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); }
+        .footer-brand p { color: rgba(255,255,255,0.7); max-width: 300px; line-height: 1.6; }
+        .footer-social { display: flex; gap: 12px; margin-top: 24px; }
+        .footer-social a { width: 40px; height: 40px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: all var(--transition-base); }
+        .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+        .footer-social svg { width: 18px; height: 18px; color: rgba(255,255,255,0.8); }
+        .footer-column h4 { font-size: 16px; font-weight: 700; margin-bottom: 20px; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: rgba(255,255,255,0.7); transition: color var(--transition-base); }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .footer-copyright { color: rgba(255,255,255,0.5); font-size: 14px; }
+        .footer-legal { display: flex; gap: 24px; }
+        .footer-legal a { color: rgba(255,255,255,0.5); font-size: 14px; }
+        .footer-legal a:hover { color: white; }
+        
+        /* Mobile Menu Button */
+        .mobile-menu-btn { display: none; width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; padding: 10px; flex-direction: column; justify-content: center; gap: 5px; }
+        .mobile-menu-btn span { display: block; height: 2px; width: 100%; background: var(--text-primary); border-radius: 2px; transition: all var(--transition-base); }
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* Mobile Sidebar */
+        .sidebar-overlay { position: fixed; inset: 0; background: rgba(26,10,20,0.5); z-index: 1200; opacity: 0; visibility: hidden; transition: all var(--transition-base); backdrop-filter: blur(4px); }
+        .sidebar-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-sidebar { position: fixed; top: 0; right: -300px; width: 280px; height: 100vh; background: var(--white); z-index: 1300; display: flex; flex-direction: column; transition: right var(--transition-base); box-shadow: var(--shadow-xl); }
+        .mobile-sidebar.active { right: 0; }
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+        .sidebar-close { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--bg-subtle); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .sidebar-close svg { width: 20px; height: 20px; color: var(--text-secondary); }
+        .sidebar-nav { flex: 1; padding: 24px; overflow-y: auto; }
+        .sidebar-nav-link { display: flex; align-items: center; gap: 14px; padding: 14px 16px; font-size: 15px; font-weight: 500; color: var(--text-secondary); border-radius: var(--radius-md); margin-bottom: 4px; transition: all var(--transition-base); }
+        .sidebar-nav-link:hover { background: var(--primary-light); color: var(--primary); }
+        .sidebar-nav-link.active { background: var(--primary-light); color: var(--primary); }
+        .sidebar-nav-link svg { width: 20px; height: 20px; opacity: 0.7; }
+        .sidebar-footer { padding: 24px; border-top: 1px solid var(--border); margin-top: auto; }
+        .sidebar-cta { display: block; width: 100%; padding: 16px; text-align: center; background: var(--gradient-primary); color: white; font-weight: 600; border-radius: var(--radius-md); box-shadow: var(--shadow-primary); }
+        
+        @media (max-width: 1024px) {
+            .about-hero { padding: 100px 0 80px; }
+            .about-hero-title { font-size: 40px; }
+            .about-hero-stats { gap: 24px; padding: 24px 32px; }
+            .stat-number { font-size: 28px; }
+            .story-grid, .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-section { padding: 80px 0; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu, .nav-actions { display: none; }
+            .mobile-menu-btn { display: flex; }
+            .about-hero { padding: 80px 0 60px; }
+            .about-hero-title { font-size: 32px; }
+            .about-hero-subtitle { font-size: 16px; margin-bottom: 36px; }
+            .about-hero-stats { flex-direction: column; gap: 20px; padding: 24px; }
+            .stat-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+            .story-visual { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stats-overview { padding: 60px 0; }
+            .cta-section { padding: 60px 0; }
+            .cta-title { font-size: 28px; }
+            .cta-subtitle { font-size: 16px; margin-bottom: 32px; }
+            .cta-buttons { gap: 16px; }
+            .timeline { padding-left: 24px; }
+            .timeline::before { left: 25px; }
+            .timeline-item { padding-left: 48px; }
+            .timeline-marker { width: 40px; height: 40px; left: -17px; font-size: 14px; }
+            .timeline-content { padding: 24px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+    
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar" id="mobileSidebar" aria-label="Mobile navigation">
+        <div class="sidebar-header">
+            <a href="index.html" class="logo">
+                <span>Pinky Tech</span>
+            </a>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="sidebar-nav" role="navigation">
+            <a href="index.html" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Home
+            </a>
+            <a href="about.html" class="sidebar-nav-link active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                About Us
+            </a>
+            <a href="index.html#programs" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                Programs
+            </a>
+            <a href="index.html#placement" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Placement
+            </a>
+            <a href="index.html#faculty" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                Faculty
+            </a>
+            <a href="#" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Careers
+            </a>
+            <a href="contact.html" class="sidebar-nav-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="contact.html" class="sidebar-cta">Join Program</a>
+        </div>
+    </aside>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Pinky Tech Home">
+                <span>Pinky Tech</span>
+            </a>
+            
+            <nav class="nav-menu" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About Us</a>
+                <a href="index.html#programs" class="nav-link">Programs</a>
+                <a href="index.html#placement" class="nav-link">Placement</a>
+                <a href="index.html#faculty" class="nav-link">Faculty</a>
+                <a href="#" class="nav-link">Careers</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">Join Program</a>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileSidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ==================== ABOUT HERO ==================== -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <span class="section-label">Our Story</span>
+                    <h1 class="about-hero-title">
+                        Where Every Woman's Potential <span class="highlight">Becomes Reality</span>
+                    </h1>
+                    <p class="about-hero-subtitle">
+                        We believe that talent knows no gender, but opportunity often discriminates. Pinky Tech exists to change that narrative — 
+                        empowering women with the skills, confidence, and support they need to build financially independent careers in technology.
+                    </p>
+                    <div class="about-hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1200+</span>
+                            <span class="stat-label">Women Trained</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">92%</span>
+                            <span class="stat-label">Placement Rate</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Hiring Partners</span>
+                        </div>
+                    </div>
+                    <div class="about-hero-cta">
+                        <a href="#story" class="btn btn-primary">
+                            Discover Our Story
+                            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <polyline points="19 12 12 19 5 12"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-hero-decoration" aria-hidden="true">
+                <div class="decoration-circle decoration-circle-1"></div>
+                <div class="decoration-circle decoration-circle-2"></div>
+                <div class="decoration-circle decoration-circle-3"></div>
+            </div>
+        </section>
+
+        <!-- ==================== STORY SECTION ==================== -->
+        <section id="story" class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <span class="section-label">Why We Exist</span>
+                        <h2>Building a Future Where Every Woman Can Lead</h2>
+                        <p>
+                            Pinky Tech was born from a simple yet powerful realization: talent is universal, but opportunity is not. 
+                            Too many brilliant women step back from their careers due to family responsibilities, only to find the doors closed when they are ready to return.
+                        </p>
+                        <p>
+                            We exist to reopen those doors. Whether you are a fresh graduate looking for direction or a professional returning after a break, 
+                            we provide the ecosystem, training, and confidence you need to stand tall in the tech industry.
+                        </p>
+                        <p>
+                            This isn't just a training institute; it's a movement to empower women with financial independence and professional pride.
+                        </p>
+                    </div>
+                    <div class="story-visual">
+                        <div class="story-stat">
+                            <strong>2026</strong>
+                            <span>Year Founded</span>
+                        </div>
+                        <div class="story-stat">
+                            <strong>100%</strong>
+                            <span>Women Led</span>
+                        </div>
+                        <div class="story-stat">
+                            <strong>500+</strong>
+                            <span>Lives Impacted</span>
+                        </div>
+                        <div class="story-stat">
+                            <strong>50+</strong>
+                            <span>Hiring Partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== MISSION & VISION ==================== -->
+        <section id="mission" class="mission-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Purpose</span>
+                    <h2 class="section-title">Driven by Impact</h2>
+                    <p class="section-subtitle">Our goals are clear, ambitious, and centered around your success.</p>
+                </div>
+                
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>
+                            To empower women with industry-relevant skills, confidence, and direct placement opportunities, ensuring financial independence and professional dignity. We strive to remove the barriers of career gaps and lack of guidance.
+                        </p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>
+                            To become a global leader in women's tech empowerment, creating a world where women have equal representation, leadership opportunities, and the freedom to build successful careers on their own terms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROBLEM & SOLUTION ==================== -->
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    
+                    <div class="story-content">
+                        <span class="section-label">The Challenge</span>
+                        <h2>The Career Gap Barrier</h2>
+                        <p>
+                            Returning to work after a break is intimidating. Technology changes fast, and confidence can fade. 
+                            Many women feel their skills are outdated or that the industry has moved on without them.
+                        </p>
+                        <p>
+                            Traditional generic training institutes often fail to address these specific anxieties and gaps, 
+                            leaving women feeling unsupported.
+                        </p>
+                    </div>
+
+                    <div class="solution-grid">
+                        <div class="solution-card primary">
+                            <div class="solution-icon primary">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="solution-text">
+                                <h3>The Pinky Tech Solution</h3>
+                                <p>We don't just teach code. We rebuild confidence, update your tech stack, provide mock corporate environments, and hand-hold you until you sign your offer letter.</p>
+                            </div>
+                        </div>
+
+                        <div class="solution-card secondary">
+                            <div class="solution-icon secondary">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="solution-text">
+                                <h3>Community & Mentorship</h3>
+                                <p>You are never alone. Our community of mentors and peers ensures that whenever you feel stuck, there is a hand ready to pull you up.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== HOW IT WORKS (TIMELINE) ==================== -->
+        <section class="timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Your Journey</span>
+                    <h2 class="section-title">From Enrollment to Employment</h2>
+                    <p class="section-subtitle">Our structured pathway ensures no steps are missed on your road to success.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h3>Enrollment & Assessment</h3>
+                            <p>We start by understanding your current skill level, career goals, and the specific gaps we need to bridge together.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h3>Intensive Training</h3>
+                            <p>Dive into hands-on coding, aptitude building, and soft skills workshops led by industry experts.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h3>Skill Development</h3>
+                            <p>Work on real-world projects, build your portfolio, and gain practical experience that employers value.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-content">
+                            <h3>Placement Preparation</h3>
+                            <p>Mock interviews, resume crafting, and negotiation skills to make you interview-ready.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-content">
+                            <h3>Career Opportunity</h3>
+                            <p>Connect with our hiring partners, secure your placement, and launch your independent career.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CORE VALUES ==================== -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Our Core Values</span>
+                    <h2 class="section-title">What We Stand For</h2>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3 class="primary">Women Empowerment</h3>
+                        <p>We believe financial independence is the highest form of empowerment.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="secondary">Career Independence</h3>
+                        <p>Building skills that allow you to stand on your own feet, anywhere in the world.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="accent">Equal Opportunity</h3>
+                        <p>Talent has no gender, and opportunities should be accessible to all.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="primary">Skill Development</h3>
+                        <p>Focusing on practical, employable skills over dry theory.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="secondary">Community Support</h3>
+                        <p>Lifting each other up through mentorship and peer learning.</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="accent">Long-Term Growth</h3>
+                        <p>We don't just get you a job; we prepare you for a career.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== STATS OVERVIEW ==================== -->
+        <section class="stats-overview">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stats-card">
+                        <h4>Women-Led</h4>
+                        <p>Organization</p>
+                    </div>
+                    <div class="stats-card">
+                        <h4>Placement</h4>
+                        <p>Focused Programs</p>
+                    </div>
+                    <div class="stats-card">
+                        <h4>Restart</h4>
+                        <p>Career Support</p>
+                    </div>
+                    <div class="stats-card">
+                        <h4>Growing</h4>
+                        <p>Tech Community</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CTA SECTION ==================== -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="cta-title">Start Your Career Journey with Pinky Tech</h2>
+                <p class="cta-subtitle">
+                    Join a community that believes in your potential. Let's build your future together.
+                </p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-btn-primary">Join Program</a>
+                    <a href="contact.html" class="cta-btn-secondary">Contact Us</a>
+                </div>
+            </div>
+            <div class="cta-decoration" aria-hidden="true"></div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
+                        <span>Pinky Tech</span>
+                    </a>
+                    <p>Empowering women to restart, rebuild, and rise in the technology industry.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#programs">Aptitude Training</a></li>
+                        <li><a href="index.html#programs">Technical Skills</a></li>
+                        <li><a href="index.html#programs">Mock Tests</a></li>
+                        <li><a href="index.html#placement">Placement Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#faculty">Faculty</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Get in Touch</h4>
+                    <ul class="footer-links">
+                        <li>hello@pinkytech.com</li>
+                        <li>+91 98765 43210</li>
+                        <li>Hyderabad, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 Pinky Tech. All rights reserved.</p>
+                <nav class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sidebar JavaScript -->
+    <script>
+        (function() {
+            'use strict';
+            const sidebar = document.getElementById('mobileSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const closeBtn = document.getElementById('sidebarClose');
+            const sidebarLinks = sidebar ? sidebar.querySelectorAll('.sidebar-nav-link, .sidebar-cta') : [];
+
+            function openSidebar() {
+                if (!sidebar || !overlay || !menuBtn) return;
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
+                menuBtn.classList.add('active');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('sidebar-open');
+            }
+
+            function closeSidebar() {
+                if (!sidebar || !overlay || !menuBtn) return;
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                menuBtn.classList.remove('active');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('sidebar-open');
+            }
+
+            if (menuBtn) menuBtn.addEventListener('click', openSidebar);
+            if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+            if (overlay) overlay.addEventListener('click', closeSidebar);
+            sidebarLinks.forEach(function(link) { link.addEventListener('click', closeSidebar); });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) closeSidebar();
+            });
+        })();
+    </script>
+
+</body>
+</html>
+
